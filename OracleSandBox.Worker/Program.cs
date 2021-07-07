@@ -1,24 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Hosting.Ext;
+using OracleSandBox.Worker.Configurations;
+using OracleSandBox.Worker.IoC;
 
 namespace OracleSandBox.Worker
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            await HostExt.BuildAndRunAsync<CmdOptions>(
+                args,
+                (e, o) => HostConfigurationExtension.ConfigureHostServices(e, o)
+            );
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<Worker>();
-                });
     }
 }

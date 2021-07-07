@@ -1,0 +1,52 @@
+2021-07-07T09:53:26.4819350+03:00 [INF] Worker executed at: 07/07/2021 09:53:26 +03:00
+2021-07-07T09:53:26.6241390+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T09:53:26.6244680+03:00 [INF] Hosting environment: "Development"
+2021-07-07T09:53:26.6261810+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker"
+2021-07-07T09:54:08.1585110+03:00 [INF] Worker executed at: 07/07/2021 09:54:08 +03:00
+2021-07-07T09:54:08.2612180+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T09:54:08.2615450+03:00 [INF] Hosting environment: "Development"
+2021-07-07T09:54:08.2630710+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker"
+2021-07-07T09:54:37.8998830+03:00 [DBG] Hosting starting
+2021-07-07T09:54:38.7876880+03:00 [INF] Worker executed at: 07/07/2021 09:54:38 +03:00
+2021-07-07T09:54:38.8154530+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T09:54:38.8157210+03:00 [INF] Hosting environment: "Development"
+2021-07-07T09:54:38.8176790+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker"
+2021-07-07T09:54:38.8182070+03:00 [DBG] Hosting started
+2021-07-07T09:54:49.5868930+03:00 [DBG] New message from chat id: 185433774
+2021-07-07T09:54:49.5875160+03:00 [DBG] Message Text: "test"
+2021-07-07T09:58:31.2968100+03:00 [DBG] Hosting starting
+2021-07-07T09:58:32.2686820+03:00 [INF] Worker executed at: 07/07/2021 09:58:32 +03:00
+2021-07-07T09:58:32.2991130+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T09:58:32.2993490+03:00 [INF] Hosting environment: "Development"
+2021-07-07T09:58:32.3008950+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker"
+2021-07-07T09:58:32.3014880+03:00 [DBG] Hosting started
+2021-07-07T09:58:39.1925070+03:00 [DBG] New message from chat id: 185433774; text: "/hello"
+2021-07-07T09:58:39.2632460+03:00 [DBG] New command: "hello"
+2021-07-07T09:58:39.2649870+03:00 [DBG] Params: 0
+2021-07-07T11:09:45.3266880+03:00 [DBG] Hosting starting
+2021-07-07T11:11:22.2942410+03:00 [DBG] Hosting starting
+2021-07-07T11:11:32.6390170+03:00 [DBG] Starting with arguments: /Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker/bin/Debug/netcoreapp3.1/OracleSandBox.Worker.dll --token 1800048153:AAF5xj0ziVrNXg8ThyAXSUgxLkJv9wmL_To
+2021-07-07T11:11:32.6468880+03:00 [INF] Worker executed at: 07/07/2021 11:11:32 +03:00
+2021-07-07T11:11:32.6566110+03:00 [INF] Worker executed at: 07/07/2021 11:11:32 +03:00
+2021-07-07T11:11:32.6798650+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T11:11:32.6801030+03:00 [INF] Hosting environment: "Development"
+2021-07-07T11:11:32.6830430+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker/bin/Debug/netcoreapp3.1"
+2021-07-07T11:11:32.6838070+03:00 [DBG] Hosting started
+2021-07-07T11:17:38.1377540+03:00 [DBG] New message from chat id: 185433774; text: "/hello"
+2021-07-07T11:17:38.2143760+03:00 [DBG] New command: "hello"
+2021-07-07T11:17:38.2174440+03:00 [DBG] Params: 0
+2021-07-07T11:17:42.5299620+03:00 [DBG] New message from chat id: 185433774; text: "тест"
+2021-07-07T11:18:03.1487440+03:00 [DBG] New message from chat id: 185433774; text: "/test"
+2021-07-07T11:18:03.2159870+03:00 [DBG] New command: "test"
+2021-07-07T11:18:03.2223110+03:00 [DBG] Params: 0
+2021-07-07T11:26:33.0240140+03:00 [DBG] Hosting starting
+2021-07-07T11:26:44.1193810+03:00 [DBG] Starting with arguments: /Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker/bin/Debug/netcoreapp3.1/OracleSandBox.Worker.dll --token 1800048153:AAF5xj0ziVrNXg8ThyAXSUgxLkJv9wmL_To
+2021-07-07T11:26:44.1274400+03:00 [INF] Worker executed at: 07/07/2021 11:26:44 +03:00
+2021-07-07T11:26:44.1341290+03:00 [INF] Worker executed at: 07/07/2021 11:26:44 +03:00
+2021-07-07T11:26:44.1542340+03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-07T11:26:44.1544810+03:00 [INF] Hosting environment: "Development"
+2021-07-07T11:26:44.1573500+03:00 [INF] Content root path: "/Users/zevs/Documents/GitHub/OracleSandBox/OracleSandBox.Worker/bin/Debug/netcoreapp3.1"
+2021-07-07T11:26:44.1577620+03:00 [DBG] Hosting started
+2021-07-07T11:26:50.5679130+03:00 [DBG] New message from chat id: 185433774; text: "/hello"
+2021-07-07T11:26:50.6344900+03:00 [DBG] New command: "hello"
+2021-07-07T11:26:50.6367650+03:00 [DBG] Params: 0
