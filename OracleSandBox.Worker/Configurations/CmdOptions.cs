@@ -21,7 +21,7 @@ namespace OracleSandBox.Worker.Configurations
             HelpText = "Data processing batch size"
         )]
         public int BatchSize { get; set; }
-        [Option("token", Required = true, HelpText = "telegram bot token from @BotFather")]
+        [Option("token", Required = true, HelpText = "Telegram bot token from @BotFather")]
         public string TelegramBotToken { get; set; }
     }
 }

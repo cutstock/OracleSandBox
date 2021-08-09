@@ -423,6 +423,11 @@ $RECYCLE.BIN/
 .idea/
 *.sln.iml
 
+# log files
+*/logs/*
+*/log/*
+*.log
+
 ##
 ## Visual Studio Code
 ##

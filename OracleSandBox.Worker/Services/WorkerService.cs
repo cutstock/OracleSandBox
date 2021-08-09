@@ -24,7 +24,6 @@ namespace OracleSandBox.Worker.Services
 
         protected override async Task ExecuteInternalAsync(CancellationToken stoppingToken)
         {
-            Logger.LogInformation("Worker executed at: {time}", DateTimeOffset.Now);
             await _sandBoxBotService.StartPollingAsync(stoppingToken);
         }
     }

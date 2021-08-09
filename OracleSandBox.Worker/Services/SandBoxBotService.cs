@@ -23,7 +23,7 @@ namespace OracleSandBox.Worker.Services
         private readonly BotClient _botClient;
 
         public User Me => _botClient.GetMe();
-        
+
         public SandBoxBotService(
             ILogger<SandBoxBotService> logger,
             IOptions<TelegramBotConfiguration> configuration)
@@ -39,19 +39,29 @@ namespace OracleSandBox.Worker.Services
             var updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>();
             while (!cancellationToken.IsCancellationRequested)
             {
-                if (updates.Any())
+                try
                 {
-                    foreach (var update in updates)
+                    if (updates.Any())
                     {
-                        //var botInstance = new SandBoxBotService(_telegramBotConfiguration);
-                        await this.OnUpdateAsync(update, cancellationToken);
+                        foreach (var update in updates)
+                        {
+                            await this.OnUpdateAsync(update, cancellationToken);
+                        }
+                        var offset = updates.Last().UpdateId + 1;
+                        updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>(offset);
                     }
-                    var offset = updates.Last().UpdateId + 1;
-                    updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>(offset);
+                    else
+                    {
+                        updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>();
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>();
+                    _logger.LogError(ex, "Failed to get updates");
+                }
+                finally
+                {
+                    await Task.Delay(100);
                 }
             }
         }
