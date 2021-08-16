@@ -22,6 +22,8 @@ namespace OracleSandBox.Worker.Services
         private readonly TelegramBotConfiguration _configuration;
         private readonly BotClient _botClient;
 
+        private const string TextSplitter = " ";
+
         public User Me => _botClient.GetMe();
 
         public SandBoxBotService(
@@ -36,9 +38,11 @@ namespace OracleSandBox.Worker.Services
 
         public async Task StartPollingAsync(CancellationToken cancellationToken = default)
         {
+            _logger.LogInformation($"My name is {Me.Username}");
             var updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>();
             while (!cancellationToken.IsCancellationRequested)
             {
+                var offset = 0;
                 try
                 {
                     if (updates.Any())
@@ -47,13 +51,9 @@ namespace OracleSandBox.Worker.Services
                         {
                             await this.OnUpdateAsync(update, cancellationToken);
                         }
-                        var offset = updates.Last().UpdateId + 1;
-                        updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>(offset);
+                        offset = updates.Last().UpdateId + 1;
                     }
-                    else
-                    {
-                        updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>();
-                    }
+                    updates = await _botClient.GetUpdatesAsync<IEnumerable<Update>>(offset);
                 }
                 catch (Exception ex)
                 {
@@ -72,7 +72,7 @@ namespace OracleSandBox.Worker.Services
             switch (cmd)
             {
                 case "hello":
-                    var hello = string.Format("Hi there, {0}!", appUser.FirstName);
+                    var hello = $"Hi there, {appUser.FirstName}!";
                     await _botClient.SendMessageAsync(message.Chat.Id, hello, null, false, false, 0, true, cancellationToken);
                     break;
             }
@@ -116,7 +116,7 @@ namespace OracleSandBox.Worker.Services
 
         protected override Task OnExceptionAsync(Exception exp, CancellationToken cancellationToken)
         {
-            _logger.LogError(exp, "New tException: {Message}", exp.Message);
+            _logger.LogError(exp, "New Exception: {Message}", exp.Message);
             return Task.CompletedTask;
         }
 
@@ -149,16 +149,16 @@ namespace OracleSandBox.Worker.Services
             {
                 if (message.Text.StartsWith('/')) // New commands
                 {
-                    var splitText = message.Text.Split(' ');
+                    var splitText = message.Text.Split(TextSplitter);
                     var command = splitText.First();
                     var parameters = splitText.Skip(1).ToArray();
                     // If the command includes a mention, you should verify that it is for your bot, otherwise you will need to ignore the command.
-                    var pattern = string.Format(@"^\/(?<cmd>\w*)(?:$|@{0}$)", Me.Username);
+                    var pattern = @$"^\/(?<cmd>\w*)(?:$|@{Me.Username}$)";
                     var match = Regex.Match(command, pattern, RegexOptions.IgnoreCase);
                     if (match.Success)
                     {
                         command = match.Groups.Values.Last().Value; // Get command name
-                        _logger.LogDebug("New command: {command}", command);
+                        _logger.LogDebug("New command: {Command}", command);
                         await this.OnCommandAsync(appUser, userMessage, command, parameters, cancellationToken);
                     }
                 }
